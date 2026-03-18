@@ -2,6 +2,27 @@
   "version": "1.0.0",
   "schemas": [
     {
+      "sheetName": "Product Classifications",
+      "apiName": "ProductClassification",
+      "externalIdField": "Catalogic_External_ID__c",
+      "externalIdColumn": "Product Classification Code",
+      "columns": [
+        { "name": "Checked", "type": "checkbox" },
+        {
+          "name": "Product Classification Name",
+          "sfFieldName": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "Product Classification Code",
+          "type": "text",
+          "primaryKey": true,
+          "unique": true
+        }
+      ]
+    },
+    {
       "sheetName": "Products",
       "apiName": "Product2",
       "externalIdField": "Catalogic_External_ID__c",
@@ -39,6 +60,10 @@
           "reference": {
             "sheetName": "Product Classifications",
             "columnName": "Product Classification Code"
+          },
+          "lookup": {
+            "sfRelationshipName": "BasedOn",
+            "targetExternalIdField": "Catalogic_External_ID__c"
           }
         },
         { "name": "Product Type", "sfFieldName": "Type", "type": "picklist" },
