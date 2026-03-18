@@ -1,0 +1,85 @@
+{
+  "version": "1.0.0",
+  "schemas": [
+    {
+      "sheetName": "Products",
+      "apiName": "Product2",
+      "externalIdField": "Catalogic_External_ID__c",
+      "externalIdColumn": "Product Code",
+      "columns": [
+        { "name": "Checked", "type": "checkbox" },
+        {
+          "name": "Product Name",
+          "sfFieldName": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "Product Code",
+          "sfFieldName": "ProductCode",
+          "type": "text",
+          "primaryKey": true,
+          "unique": true,
+          "formula": "=\"CTX_P_\"&SUBSTITUTE(UPPER(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(TRIM(B{row}),\",\",\"\"),\".\",\"\"),\"-\",\"\"),\"'\",\"\"),\"\"\"\",\"\"))\" \",\"_\")"
+        },
+        { "name": "Product SKU", "sfFieldName": "StockKeepingUnit", "type": "text" },
+        { "name": "Product Description", "sfFieldName": "Description", "type": "text" },
+        { "name": "Help Text", "sfFieldName": "HelpText", "type": "text" },
+        {
+          "name": "Based On",
+          "type": "text",
+          "reference": {
+            "sheetName": "Product Classifications",
+            "columnName": "Product Classification Name"
+          }
+        },
+        {
+          "name": "Based On Code",
+          "type": "text",
+          "reference": {
+            "sheetName": "Product Classifications",
+            "columnName": "Product Classification Code"
+          }
+        },
+        { "name": "Product Type", "sfFieldName": "Type", "type": "picklist" },
+        { "name": "Configure During Sale", "sfFieldName": "ConfigureDuringSale", "type": "picklist" },
+        { "name": "Sell only with other products", "sfFieldName": "IsSoldOnlyWithOtherProds", "type": "checkbox" },
+        { "name": "Assetizable", "sfFieldName": "IsAssetizable", "type": "checkbox" },
+        { "name": "Product Family", "sfFieldName": "Family", "type": "picklist" },
+        { "name": "Decomposition Scope", "sfFieldName": "DecompositionScope", "type": "text" },
+        { "name": "Display URL", "sfFieldName": "DisplayUrl", "type": "text" },
+        {
+          "name": "Product Selling Model Name",
+          "type": "text",
+          "reference": {
+            "sheetName": "Product Selling Models",
+            "columnName": "Product Selling Model Name"
+          }
+        },
+        {
+          "name": "Product Category",
+          "type": "text",
+          "reference": {
+            "sheetName": "Product Categories",
+            "columnName": "Product Category Name"
+          }
+        },
+        {
+          "name": "Product Category Code",
+          "type": "text",
+          "reference": {
+            "sheetName": "Product Categories",
+            "columnName": "Product Category Code"
+          }
+        },
+        { "name": "Active", "sfFieldName": "IsActive", "type": "checkbox" },
+        { "name": "Availability Date", "sfFieldName": "AvailabilityDate", "type": "date" },
+        { "name": "End of Life Date", "sfFieldName": "EndOfLifeDate", "type": "date" },
+        { "name": "Discontinued Date", "sfFieldName": "DiscontinuedDate", "type": "date" },
+        { "name": "Billing Policy", "type": "text", "forFutureUse": true },
+        { "name": "Tax Policy", "type": "text", "forFutureUse": true },
+        { "name": "Unit of Measure", "type": "text", "forFutureUse": true }
+      ]
+    }
+  ]
+}
