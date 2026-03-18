@@ -16,9 +16,15 @@
         },
         {
           "name": "Product Classification Code",
+          "sfFieldName": "Code",
           "type": "text",
           "primaryKey": true,
           "unique": true
+        },
+        {
+          "name": "Status",
+          "sfFieldName": "Status",
+          "type": "picklist"
         }
       ]
     },
