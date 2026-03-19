@@ -85,6 +85,32 @@
         { "name": "End of Life Date", "sfFieldName": "EndOfLifeDate", "type": "date" },
         { "name": "Discontinued Date", "sfFieldName": "DiscontinuedDate", "type": "date" }
       ]
+    },
+    {
+      "sheetName": "Product Catalogs",
+      "apiName": "ProductCatalog",
+      "externalIdField": "Catalogic_External_ID__c",
+      "externalIdColumn": "Product Catalog Code",
+      "columns": [
+        { "name": "Checked", "type": "checkbox" },
+        {
+          "name": "Product Catalog Name",
+          "sfFieldName": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "Product Catalog Code",
+          "sfFieldName": "Code",
+          "type": "text",
+          "primaryKey": true,
+          "unique": true
+        },
+        { "name": "Catalog Type", "sfFieldName": "CatalogType", "type": "picklist" },
+        { "name": "Description", "sfFieldName": "Description", "type": "text" },
+        { "name": "Effective Start Date", "sfFieldName": "EffectiveStartDate", "type": "date" },
+        { "name": "Effective End Date", "sfFieldName": "EffectiveEndDate", "type": "date" }
+      ]
     }
   ]
 }
