@@ -111,6 +111,71 @@
         { "name": "Effective Start Date", "sfFieldName": "EffectiveStartDate", "type": "date" },
         { "name": "Effective End Date", "sfFieldName": "EffectiveEndDate", "type": "date" }
       ]
+    },
+    {
+      "sheetName": "Product Categories",
+      "apiName": "ProductCategory",
+      "externalIdField": "Catalogic_External_ID__c",
+      "externalIdColumn": "Product Category Code",
+      "columns": [
+        { "name": "Checked", "type": "checkbox" },
+        {
+          "name": "Product Category Name",
+          "sfFieldName": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "Product Category Code",
+          "sfFieldName": "Code",
+          "type": "text",
+          "primaryKey": true,
+          "unique": true
+        },
+        {
+          "name": "Product Catalog Name",
+          "type": "text",
+          "reference": {
+            "sheetName": "Product Catalogs",
+            "columnName": "Product Catalog Name"
+          }
+        },
+        {
+          "name": "Product Catalog Code",
+          "type": "text",
+          "reference": {
+            "sheetName": "Product Catalogs",
+            "columnName": "Product Catalog Code"
+          },
+          "lookup": {
+            "sfRelationshipName": "Catalog",
+            "targetExternalIdField": "Catalogic_External_ID__c"
+          }
+        },
+        {
+          "name": "Parent Product Category Name",
+          "type": "text",
+          "reference": {
+            "sheetName": "Product Categories",
+            "columnName": "Product Category Name"
+          }
+        },
+        {
+          "name": "Parent Product Category Code",
+          "type": "text",
+          "reference": {
+            "sheetName": "Product Categories",
+            "columnName": "Product Category Code"
+          },
+          "lookup": {
+            "sfRelationshipName": "ParentCategory",
+            "targetExternalIdField": "Catalogic_External_ID__c"
+          }
+        },
+        { "name": "Description", "sfFieldName": "Description", "type": "text" },
+        { "name": "Is Navigational", "sfFieldName": "IsNavigational", "type": "checkbox" },
+        { "name": "Sort Order", "sfFieldName": "SortOrder", "type": "number" }
+      ]
     }
   ]
 }
