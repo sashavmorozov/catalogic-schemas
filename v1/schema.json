@@ -49,7 +49,7 @@
           "unique": true,
           "formula": "=\"CTX_P_\"&SUBSTITUTE(UPPER(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(TRIM(B{row}),\",\",\"\"),\".\",\"\"),\"-\",\"\"),\"'\",\"\"),\"\"\"\",\"\"))\" \",\"_\")"
         },
-        { "name": "Product Record Type", "sfFieldName": "RecordType.Name", "type": "text" },
+        { "name": "Product Record Type", "sfFieldName": "RecordType.DeveloperName", "type": "text" },
         { "name": "Product SKU", "sfFieldName": "StockKeepingUnit", "type": "text" },
         { "name": "Product Description", "sfFieldName": "Description", "type": "text" },
         { "name": "Help Text", "sfFieldName": "HelpText", "type": "text" },
