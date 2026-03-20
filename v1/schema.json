@@ -176,6 +176,72 @@
         { "name": "Is Navigational", "sfFieldName": "IsNavigational", "type": "checkbox" },
         { "name": "Sort Order", "sfFieldName": "SortOrder", "type": "number" }
       ]
+    },
+    {
+      "sheetName": "Product Component Groups",
+      "apiName": "ProductComponentGroup",
+      "externalIdField": "Catalogic_External_ID__c",
+      "externalIdColumn": "Product Component Group Code",
+      "columns": [
+        { "name": "Checked", "type": "checkbox" },
+        {
+          "name": "Parent Product Name",
+          "type": "text",
+          "reference": {
+            "sheetName": "Products",
+            "columnName": "Product Name"
+          }
+        },
+        {
+          "name": "Parent Product Code",
+          "type": "text",
+          "reference": {
+            "sheetName": "Products",
+            "columnName": "Product Code"
+          },
+          "lookup": {
+            "sfRelationshipName": "ParentProduct",
+            "targetExternalIdField": "Catalogic_External_ID__c"
+          }
+        },
+        {
+          "name": "Product Component Group Name",
+          "sfFieldName": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "Product Component Group Code",
+          "sfFieldName": "Code",
+          "type": "text",
+          "primaryKey": true,
+          "unique": true
+        },
+        { "name": "Description", "sfFieldName": "Description", "type": "text" },
+        {
+          "name": "Parent Product Component Group Name",
+          "type": "text",
+          "reference": {
+            "sheetName": "Product Component Groups",
+            "columnName": "Product Component Group Name"
+          }
+        },
+        {
+          "name": "Parent Product Component Group Code",
+          "type": "text",
+          "reference": {
+            "sheetName": "Product Component Groups",
+            "columnName": "Product Component Group Code"
+          },
+          "lookup": {
+            "sfRelationshipName": "ParentGroup",
+            "targetExternalIdField": "Catalogic_External_ID__c"
+          }
+        },
+        { "name": "Min Number of Components", "sfFieldName": "MinBundleComponents", "type": "number" },
+        { "name": "Max Number of Components", "sfFieldName": "MaxBundleComponents", "type": "number" },
+        { "name": "Sequence", "sfFieldName": "Sequence", "type": "number" }
+      ]
     }
   ]
 }
