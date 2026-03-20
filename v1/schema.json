@@ -201,7 +201,8 @@
           },
           "lookup": {
             "sfRelationshipName": "ParentProduct",
-            "targetExternalIdField": "Catalogic_External_ID__c"
+            "targetExternalIdField": "Catalogic_External_ID__c",
+            "masterDetail": true
           }
         },
         {
