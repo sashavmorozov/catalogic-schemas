@@ -372,7 +372,15 @@
             "targetExternalIdField": "Catalogic_External_ID__c"
           }
         },
-        { "name": "Product Relationship Type Name", "sfFieldName": "ProductRelationshipType.Name", "type": "text" },
+        {
+          "name": "Product Relationship Type Name",
+          "type": "text",
+          "lookupByName": {
+            "sfIdField": "ProductRelationshipTypeId",
+            "sfObjectName": "ProductRelationshipType",
+            "sfLookupField": "Name"
+          }
+        },
         { "name": "Parent Product Role", "sfFieldName": "ParentProductRole", "type": "picklist" },
         { "name": "Child Product Role", "sfFieldName": "ChildProductRole", "type": "picklist" },
         { "name": "Parent Selling Model Name", "type": "text" },
