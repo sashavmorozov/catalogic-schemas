@@ -29,6 +29,30 @@
       ]
     },
     {
+      "sheetName": "Attribute Categories",
+      "apiName": "AttributeCategory",
+      "externalIdField": "Catalogic_External_ID__c",
+      "externalIdColumn": "Attribute Category Code",
+      "columns": [
+        { "name": "Checked", "type": "checkbox" },
+        {
+          "name": "Attribute Category Name",
+          "sfFieldName": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "Attribute Category Code",
+          "sfFieldName": "Code",
+          "type": "text",
+          "primaryKey": true,
+          "unique": true,
+          "formula": "=\"CTX_ATTRCAT_\"&SUBSTITUTE(UPPER(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(TRIM(B{row}),\",\",\"\"),\".\",\"\"),\"-\",\"\"),\"'\",\"\"),\"\\\"\",\"\"))\" \",\"_\")"
+        },
+        { "name": "Attribute Category Description", "sfFieldName": "Description", "type": "text" }
+      ]
+    },
+    {
       "sheetName": "Products",
       "apiName": "Product2",
       "externalIdField": "Catalogic_External_ID__c",
@@ -68,6 +92,7 @@
         {
           "name": "Based On Code",
           "type": "text",
+          "formula": "=IF(H{row}=\"\",\"\",IFERROR(VLOOKUP(H{row},'Product Classifications'!B:C,2,FALSE),\"NOT FOUND\"))",
           "reference": {
             "sheetName": "Product Classifications",
             "columnName": "Product Classification Code"
