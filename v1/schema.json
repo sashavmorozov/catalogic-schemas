@@ -243,6 +243,94 @@
         { "name": "Max Number of Components", "sfFieldName": "MaxBundleComponents", "type": "number" },
         { "name": "Sequence", "sfFieldName": "Sequence", "type": "number" }
       ]
+    },
+    {
+      "sheetName": "Product Components",
+      "apiName": "ProductRelatedComponent",
+      "externalIdField": "Catalogic_External_ID__c",
+      "externalIdColumn": "Product Component Code",
+      "columns": [
+        { "name": "Checked", "type": "checkbox" },
+        { "name": "Product Component Name", "sfFieldName": "Name", "type": "text", "required": true },
+        {
+          "name": "Product Component Code",
+          "type": "text",
+          "primaryKey": true,
+          "unique": true
+        },
+        {
+          "name": "Parent Product Name",
+          "type": "text",
+          "reference": {
+            "sheetName": "Products",
+            "columnName": "Product Name"
+          }
+        },
+        {
+          "name": "Parent Product Code",
+          "type": "text",
+          "reference": {
+            "sheetName": "Products",
+            "columnName": "Product Code"
+          },
+          "lookup": {
+            "sfRelationshipName": "ParentProduct",
+            "targetExternalIdField": "Catalogic_External_ID__c",
+            "masterDetail": true
+          }
+        },
+        {
+          "name": "Child Product Name",
+          "type": "text",
+          "reference": {
+            "sheetName": "Products",
+            "columnName": "Product Name"
+          }
+        },
+        {
+          "name": "Child Product Code",
+          "type": "text",
+          "reference": {
+            "sheetName": "Products",
+            "columnName": "Product Code"
+          },
+          "lookup": {
+            "sfRelationshipName": "ChildProduct",
+            "targetExternalIdField": "Catalogic_External_ID__c"
+          }
+        },
+        {
+          "name": "Product Component Group Name",
+          "type": "text",
+          "reference": {
+            "sheetName": "Product Component Groups",
+            "columnName": "Product Component Group Name"
+          }
+        },
+        {
+          "name": "Product Component Group Code",
+          "type": "text",
+          "reference": {
+            "sheetName": "Product Component Groups",
+            "columnName": "Product Component Group Code"
+          },
+          "lookup": {
+            "sfRelationshipName": "ProductComponentGroup",
+            "targetExternalIdField": "Catalogic_External_ID__c"
+          }
+        },
+        { "name": "Include Component by Default", "sfFieldName": "IsDefaultComponent", "type": "checkbox" },
+        { "name": "Require This Component", "sfFieldName": "IsComponentRequired", "type": "checkbox" },
+        { "name": "Price Includes Component", "sfFieldName": "DoesBundlePriceIncludeChild", "type": "checkbox" },
+        { "name": "Allow Quantity Changes", "sfFieldName": "IsQuantityEditable", "type": "checkbox" },
+        { "name": "Quantity", "sfFieldName": "Quantity", "type": "number" },
+        { "name": "Min Quantity", "sfFieldName": "MinQuantity", "type": "number" },
+        { "name": "Max Quantity", "sfFieldName": "MaxQuantity", "type": "number" },
+        { "name": "Sequence", "sfFieldName": "Sequence", "type": "number" },
+        { "name": "Parent Product Role", "sfFieldName": "ParentProductRole", "type": "text" },
+        { "name": "Child Product Role", "sfFieldName": "ChildProductRole", "type": "text" },
+        { "name": "Quantity Scale Method", "sfFieldName": "QuantityScaleMethod", "type": "picklist" }
+      ]
     }
   ]
 }
