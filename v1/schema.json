@@ -249,6 +249,8 @@
       "apiName": "ProductRelatedComponent",
       "externalIdField": "Catalogic_External_ID__c",
       "externalIdColumn": "Product Component Code",
+      "backfillSourceFields": ["ParentProduct.ProductCode", "ChildProduct.ProductCode"],
+      "backfillSeparator": "_",
       "columns": [
         { "name": "Checked", "type": "checkbox" },
         { "name": "Product Component Name", "sfFieldName": "Name", "type": "text", "required": true },
