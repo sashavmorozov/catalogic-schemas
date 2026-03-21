@@ -361,8 +361,8 @@
           }
         },
         { "name": "Product Relationship Type Name", "sfFieldName": "ProductRelationshipType.Name", "type": "text" },
-        { "name": "Parent Product Role", "sfFieldName": "ParentProductRole", "type": "text" },
-        { "name": "Child Product Role", "sfFieldName": "ChildProductRole", "type": "text" },
+        { "name": "Parent Product Role", "sfFieldName": "ParentProductRole", "type": "picklist" },
+        { "name": "Child Product Role", "sfFieldName": "ChildProductRole", "type": "picklist" },
         { "name": "Parent Selling Model Name", "type": "text" },
         { "name": "Child Selling Model Name", "type": "text" },
         { "name": "Quantity", "sfFieldName": "Quantity", "type": "number" },
