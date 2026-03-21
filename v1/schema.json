@@ -59,6 +59,10 @@
           "reference": {
             "sheetName": "Product Classifications",
             "columnName": "Product Classification Name"
+          },
+          "lookup": {
+            "sfRelationshipName": "BasedOn",
+            "targetExternalIdField": "Catalogic_External_ID__c"
           }
         },
         {
@@ -138,6 +142,10 @@
           "reference": {
             "sheetName": "Product Catalogs",
             "columnName": "Product Catalog Name"
+          },
+          "lookup": {
+            "sfRelationshipName": "Catalog",
+            "targetExternalIdField": "Catalogic_External_ID__c"
           }
         },
         {
@@ -158,6 +166,10 @@
           "reference": {
             "sheetName": "Product Categories",
             "columnName": "Product Category Name"
+          },
+          "lookup": {
+            "sfRelationshipName": "ParentCategory",
+            "targetExternalIdField": "Catalogic_External_ID__c"
           }
         },
         {
@@ -190,6 +202,11 @@
           "reference": {
             "sheetName": "Products",
             "columnName": "Product Name"
+          },
+          "lookup": {
+            "sfRelationshipName": "ParentProduct",
+            "targetExternalIdField": "Catalogic_External_ID__c",
+            "masterDetail": true
           }
         },
         {
@@ -225,6 +242,10 @@
           "reference": {
             "sheetName": "Product Component Groups",
             "columnName": "Product Component Group Name"
+          },
+          "lookup": {
+            "sfRelationshipName": "ParentGroup",
+            "targetExternalIdField": "Catalogic_External_ID__c"
           }
         },
         {
@@ -259,6 +280,11 @@
           "reference": {
             "sheetName": "Products",
             "columnName": "Product Name"
+          },
+          "lookup": {
+            "sfRelationshipName": "ParentProduct",
+            "targetExternalIdField": "Catalogic_External_ID__c",
+            "masterDetail": true
           }
         },
         {
@@ -280,6 +306,10 @@
           "reference": {
             "sheetName": "Products",
             "columnName": "Product Name"
+          },
+          "lookup": {
+            "sfRelationshipName": "ChildProduct",
+            "targetExternalIdField": "Catalogic_External_ID__c"
           }
         },
         {
@@ -300,6 +330,10 @@
           "reference": {
             "sheetName": "Product Classifications",
             "columnName": "Product Classification Name"
+          },
+          "lookup": {
+            "sfRelationshipName": "ChildProductClassification",
+            "targetExternalIdField": "Catalogic_External_ID__c"
           }
         },
         {
@@ -320,6 +354,10 @@
           "reference": {
             "sheetName": "Product Component Groups",
             "columnName": "Product Component Group Name"
+          },
+          "lookup": {
+            "sfRelationshipName": "ProductComponentGroup",
+            "targetExternalIdField": "Catalogic_External_ID__c"
           }
         },
         { "name": "Product Relationship Type Name", "type": "text" },
