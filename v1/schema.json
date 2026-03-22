@@ -88,6 +88,11 @@
           "reference": {
             "sheetName": "Attribute Categories",
             "columnName": "Attribute Category Name"
+          },
+          "downloadSubquery": {
+            "childRelationship": "AttributeCategoryAttributes",
+            "throughRelationship": "AttributeCategory",
+            "targetField": "Name"
           }
         },
         {
@@ -97,6 +102,11 @@
           "reference": {
             "sheetName": "Attribute Categories",
             "columnName": "Attribute Category Code"
+          },
+          "downloadSubquery": {
+            "childRelationship": "AttributeCategoryAttributes",
+            "throughRelationship": "AttributeCategory",
+            "targetField": "Code"
           }
         },
         { "name": "Attribute Description", "sfFieldName": "Description", "type": "text" },
