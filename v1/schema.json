@@ -5,17 +5,17 @@
       "sheetName": "Picklists",
       "apiName": "AttributePicklist",
       "externalIdField": "Catalogic_External_ID__c",
-      "externalIdColumn": "Picklist Code",
+      "externalIdColumn": "Attribute Picklist Code",
       "columns": [
         { "name": "Checked", "type": "checkbox" },
         {
-          "name": "Picklist Name",
+          "name": "Attribute Picklist Name",
           "sfFieldName": "Name",
           "type": "text",
           "required": true
         },
         {
-          "name": "Picklist Code",
+          "name": "Attribute Picklist Code",
           "sfFieldName": "Code",
           "type": "text",
           "primaryKey": true,
