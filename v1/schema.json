@@ -2,6 +2,32 @@
   "version": "1.0.0",
   "schemas": [
     {
+      "sheetName": "Picklists",
+      "apiName": "AttributePicklist",
+      "externalIdField": "Catalogic_External_ID__c",
+      "externalIdColumn": "Picklist Code",
+      "columns": [
+        { "name": "Checked", "type": "checkbox" },
+        {
+          "name": "Picklist Name",
+          "sfFieldName": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "Picklist Code",
+          "sfFieldName": "Code",
+          "type": "text",
+          "primaryKey": true,
+          "unique": true,
+          "formula": "=\"CTX_PL_\"&SUBSTITUTE(UPPER(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(TRIM(B{row}),\",\",\"\"),\".\",\"\"),\"-\",\"\"),\"'\",\"\"),\"\\\"\",\"\"))\" \",\"_\")"
+        },
+        { "name": "Data Type", "sfFieldName": "DataType", "type": "picklist", "picklistValues": ["Boolean", "Date", "Datetime", "Number", "Text", "Currency", "Percent"] },
+        { "name": "Status", "sfFieldName": "Status", "type": "picklist", "picklistValues": ["Draft", "Active", "Inactive"] },
+        { "name": "Description", "sfFieldName": "Description", "type": "text" }
+      ]
+    },
+    {
       "sheetName": "Product Classifications",
       "apiName": "ProductClassification",
       "externalIdField": "Catalogic_External_ID__c",
