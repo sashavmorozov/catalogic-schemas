@@ -22,9 +22,9 @@
           "unique": true,
           "formula": "=\"CTX_PL_\"&SUBSTITUTE(UPPER(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(TRIM(B{row}),\",\",\"\"),\".\",\"\"),\"-\",\"\"),\"'\",\"\"),\"\\\"\",\"\"))\" \",\"_\")"
         },
+        { "name": "Description", "sfFieldName": "Description", "type": "text" },
         { "name": "Data Type", "sfFieldName": "DataType", "type": "picklist", "picklistValues": ["Boolean", "Date", "Datetime", "Number", "Text", "Currency", "Percent"] },
-        { "name": "Status", "sfFieldName": "Status", "type": "picklist", "picklistValues": ["Draft", "Active", "Inactive"] },
-        { "name": "Description", "sfFieldName": "Description", "type": "text" }
+        { "name": "Status", "sfFieldName": "Status", "type": "picklist", "picklistValues": ["Draft", "Active", "Inactive"] }
       ]
     },
     {
