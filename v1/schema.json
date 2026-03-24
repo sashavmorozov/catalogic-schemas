@@ -28,6 +28,63 @@
       ]
     },
     {
+      "sheetName": "Picklist Values",
+      "apiName": "AttributePicklistValue",
+      "externalIdField": "Catalogic_External_ID__c",
+      "externalIdColumn": "Picklist Value Code",
+      "columns": [
+        { "name": "Checked", "type": "checkbox" },
+        {
+          "name": "Picklist Name",
+          "sfFieldName": "Picklist.Name",
+          "type": "text",
+          "reference": {
+            "sheetName": "Picklists",
+            "columnName": "Attribute Picklist Name"
+          },
+          "lookup": {
+            "sfRelationshipName": "Picklist",
+            "targetExternalIdField": "Catalogic_External_ID__c",
+            "masterDetail": true
+          }
+        },
+        {
+          "name": "Picklist Code",
+          "type": "text",
+          "formula": "=IF(B{row}=\"\",\"\",IFERROR(VLOOKUP(B{row},Picklists!B:C,2,FALSE),\"NOT FOUND\"))",
+          "reference": {
+            "sheetName": "Picklists",
+            "columnName": "Attribute Picklist Code"
+          },
+          "lookup": {
+            "sfRelationshipName": "Picklist",
+            "targetExternalIdField": "Catalogic_External_ID__c",
+            "masterDetail": true
+          }
+        },
+        {
+          "name": "Picklist Value Name",
+          "sfFieldName": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "Picklist Value Code",
+          "sfFieldName": "Code",
+          "type": "text",
+          "primaryKey": true,
+          "unique": true,
+          "formula": "=\"CTX_PLV_\"&SUBSTITUTE(UPPER(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(TRIM(D{row}),\",\",\"\"),\".\",\"\"),\"-\",\"\"),\"'\",\"\"),\"\\\"\",\"\"))\" \",\"_\")"
+        },
+        { "name": "Value", "sfFieldName": "Value", "type": "text", "required": true },
+        { "name": "Display Value", "sfFieldName": "DisplayValue", "type": "text" },
+        { "name": "Abbreviation", "sfFieldName": "Abbreviation", "type": "text" },
+        { "name": "Sequence", "sfFieldName": "Sequence", "type": "number" },
+        { "name": "Is Default", "sfFieldName": "IsDefault", "type": "checkbox" },
+        { "name": "Status", "sfFieldName": "Status", "type": "picklist", "picklistValues": ["Draft", "Active", "Inactive"] }
+      ]
+    },
+    {
       "sheetName": "Product Classifications",
       "apiName": "ProductClassification",
       "externalIdField": "Catalogic_External_ID__c",
