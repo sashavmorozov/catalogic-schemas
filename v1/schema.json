@@ -77,7 +77,7 @@
           "formula": "=\"CTX_PLV_\"&SUBSTITUTE(UPPER(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(TRIM(D{row}),\",\",\"\"),\".\",\"\"),\"-\",\"\"),\"'\",\"\"),\"\\\"\",\"\"))\" \",\"_\")"
         },
         { "name": "Value", "sfFieldName": "Value", "type": "text", "required": true },
-        { "name": "Display Value", "sfFieldName": "DisplayValue", "type": "text" },
+        { "name": "Display Value", "sfFieldName": "DisplayValue", "type": "text", "uniqueWithin": "Picklist Name" },
         { "name": "Abbreviation", "sfFieldName": "Abbreviation", "type": "text" },
         { "name": "Sequence", "sfFieldName": "Sequence", "type": "number" },
         { "name": "Is Default", "sfFieldName": "IsDefault", "type": "checkbox" },
