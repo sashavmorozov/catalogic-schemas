@@ -218,7 +218,7 @@
       ]
     },
     {
-      "sheetName": "Product Classification Attributes",
+      "sheetName": "Product Classification Attribut",
       "apiName": "ProductClassificationAttr",
       "externalIdField": "Catalogic_External_ID__c",
       "externalIdColumn": "Attribute Code",
