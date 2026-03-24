@@ -218,6 +218,111 @@
       ]
     },
     {
+      "sheetName": "Product Classification Attributes",
+      "apiName": "ProductClassificationAttr",
+      "externalIdField": "Catalogic_External_ID__c",
+      "externalIdColumn": "Attribute Code",
+      "backfillSourceFields": ["ProductClassification.Code", "AttributeDefinition.Code"],
+      "backfillSeparator": "_",
+      "autoNameFormat": "PCA-{Product Classification Name}-{Attribute Name}",
+      "columns": [
+        { "name": "Checked", "type": "checkbox" },
+        {
+          "name": "Product Classification Name",
+          "type": "text",
+          "reference": {
+            "sheetName": "Product Classifications",
+            "columnName": "Product Classification Name"
+          },
+          "lookup": {
+            "sfRelationshipName": "ProductClassification",
+            "targetExternalIdField": "Catalogic_External_ID__c"
+          }
+        },
+        {
+          "name": "Product Classification Code",
+          "type": "text",
+          "formula": "=IF(B{row}=\"\",\"\",IFERROR(VLOOKUP(B{row},'Product Classifications'!B:C,2,FALSE),\"NOT FOUND\"))",
+          "reference": {
+            "sheetName": "Product Classifications",
+            "columnName": "Product Classification Code"
+          },
+          "lookup": {
+            "sfRelationshipName": "ProductClassification",
+            "targetExternalIdField": "Catalogic_External_ID__c"
+          }
+        },
+        {
+          "name": "Attribute Name",
+          "type": "text",
+          "reference": {
+            "sheetName": "Attributes",
+            "columnName": "Attribute Name"
+          },
+          "lookup": {
+            "sfRelationshipName": "AttributeDefinition",
+            "targetExternalIdField": "Catalogic_External_ID__c"
+          }
+        },
+        {
+          "name": "Attribute Code",
+          "type": "text",
+          "formula": "=IF(D{row}=\"\",\"\",IFERROR(VLOOKUP(D{row},Attributes!B:C,2,FALSE),\"NOT FOUND\"))",
+          "reference": {
+            "sheetName": "Attributes",
+            "columnName": "Attribute Code"
+          },
+          "lookup": {
+            "sfRelationshipName": "AttributeDefinition",
+            "targetExternalIdField": "Catalogic_External_ID__c"
+          }
+        },
+        { "name": "Attribute Name Override", "sfFieldName": "AttributeNameOverride", "type": "text" },
+        {
+          "name": "Attribute Category Name",
+          "type": "text",
+          "reference": {
+            "sheetName": "Attribute Categories",
+            "columnName": "Attribute Category Name"
+          },
+          "lookup": {
+            "sfRelationshipName": "AttributeCategory",
+            "targetExternalIdField": "Catalogic_External_ID__c"
+          }
+        },
+        {
+          "name": "Attribute Category Code",
+          "type": "text",
+          "formula": "=IF(G{row}=\"\",\"\",IFERROR(VLOOKUP(G{row},'Attribute Categories'!B:C,2,FALSE),\"NOT FOUND\"))",
+          "reference": {
+            "sheetName": "Attribute Categories",
+            "columnName": "Attribute Category Code"
+          },
+          "lookup": {
+            "sfRelationshipName": "AttributeCategory",
+            "targetExternalIdField": "Catalogic_External_ID__c"
+          }
+        },
+        { "name": "Description", "sfFieldName": "Description", "type": "text" },
+        { "name": "Default Value", "sfFieldName": "DefaultValue", "type": "text" },
+        { "name": "Value Description", "sfFieldName": "ValueDescription", "type": "text" },
+        { "name": "Display Type", "sfFieldName": "DisplayType", "type": "picklist", "picklistValues": ["Combo Box", "Text", "Radio Button", "Check Box", "Toggle", "Number", "Date", "Datetime", "Slider"] },
+        { "name": "Help Text", "sfFieldName": "HelpText", "type": "text" },
+        { "name": "Is Hidden", "sfFieldName": "IsHidden", "type": "checkbox" },
+        { "name": "Is Read Only", "sfFieldName": "IsReadOnly", "type": "checkbox" },
+        { "name": "Is Required", "sfFieldName": "IsRequired", "type": "checkbox" },
+        { "name": "Is Price Impacting", "sfFieldName": "IsPriceImpacting", "type": "checkbox" },
+        { "name": "Sequence", "sfFieldName": "Sequence", "type": "number" },
+        { "name": "Unit of Measure Name", "type": "text", "forFutureUse": true },
+        { "name": "Step Value", "sfFieldName": "StepValue", "type": "text" },
+        { "name": "Maximum Character Count", "sfFieldName": "MaximumCharacterCount", "type": "number" },
+        { "name": "Minimum Character Count", "sfFieldName": "MinimumCharacterCount", "type": "number" },
+        { "name": "Maximum Value", "sfFieldName": "MaximumValue", "type": "text" },
+        { "name": "Minimum Value", "sfFieldName": "MinimumValue", "type": "text" },
+        { "name": "Status", "sfFieldName": "Status", "type": "picklist", "picklistValues": ["Active", "Inactive"] }
+      ]
+    },
+    {
       "sheetName": "Products",
       "apiName": "Product2",
       "externalIdField": "Catalogic_External_ID__c",
