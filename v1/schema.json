@@ -222,6 +222,7 @@
       "apiName": "ProductClassificationAttr",
       "externalIdField": "Catalogic_External_ID__c",
       "externalIdColumn": "Attribute Code",
+      "compositeExternalIdColumns": ["Product Classification Code", "Attribute Code"],
       "backfillSourceFields": ["ProductClassification.Code", "AttributeDefinition.Code"],
       "backfillSeparator": "_",
       "autoNameFormat": "PCA-{Product Classification Name}-{Attribute Name}",
