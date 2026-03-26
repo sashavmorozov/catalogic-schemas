@@ -848,6 +848,7 @@
           "name": "Product Code",
           "type": "text",
           "required": true,
+          "formula": "=IF(B{row}<>\"\",IFERROR(VLOOKUP(B{row},Products!$B:$C,2,FALSE),\"NOT FOUND\"),\"\")",
           "reference": {
             "sheetName": "Products",
             "columnName": "Product Code"
@@ -873,6 +874,7 @@
           "name": "Attribute Code",
           "type": "text",
           "required": true,
+          "formula": "=IF(D{row}<>\"\",IFERROR(VLOOKUP(D{row},Attributes!$B:$C,2,FALSE),\"NOT FOUND\"),\"\")",
           "reference": {
             "sheetName": "Attributes",
             "columnName": "Attribute Code"
