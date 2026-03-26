@@ -707,6 +707,7 @@
       "secondaryUpsert": {
         "apiName": "ProductSellingModelOption",
         "externalIdField": "Catalogic_External_ID__c",
+        "order": "before",
         "fieldMapping": {
           "Product2Id": { "type": "externalId", "sourceColumn": "Product Code", "targetObject": "Product2", "targetField": "Catalogic_External_ID__c" },
           "ProductSellingModelId": { "type": "lookupByName", "sourceColumn": "Product Selling Model", "targetObject": "ProductSellingModel" },
