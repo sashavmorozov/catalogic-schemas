@@ -691,6 +691,84 @@
         { "name": "Price Includes Component", "sfFieldName": "DoesBundlePriceIncludeChild", "type": "checkbox" },
         { "name": "Sequence", "sfFieldName": "Sequence", "type": "number" }
       ]
+    },
+    {
+      "sheetName": "Pricebook Entries",
+      "apiName": "PricebookEntry",
+      "externalIdField": "Catalogic_External_ID__c",
+      "externalIdColumn": "Product Code",
+      "compositeExternalId": {
+        "columns": ["Price Book Name", "Product Code", "Product Selling Model"],
+        "separator": "_"
+      },
+      "autoName": {
+        "template": "PBE-{Price Book Name}-{Product Code}-{Product Selling Model}"
+      },
+      "secondaryUpsert": {
+        "apiName": "ProductSellingModelOption",
+        "externalIdField": "Catalogic_External_ID__c",
+        "fieldMapping": {
+          "Product2Id": { "type": "externalId", "sourceColumn": "Product Code", "targetObject": "Product2", "targetField": "Catalogic_External_ID__c" },
+          "ProductSellingModelId": { "type": "lookupByName", "sourceColumn": "Product Selling Model", "targetObject": "ProductSellingModel" },
+          "IsDefault": { "type": "constant", "value": false }
+        },
+        "compositeExternalId": {
+          "columns": ["Product Code", "Product Selling Model"],
+          "separator": "_"
+        }
+      },
+      "columns": [
+        { "name": "Checked", "type": "checkbox" },
+        {
+          "name": "Price Book Name",
+          "type": "text",
+          "required": true,
+          "lookupByName": {
+            "sfIdField": "Pricebook2Id",
+            "sfObjectName": "Pricebook2",
+            "sfLookupField": "Name"
+          }
+        },
+        {
+          "name": "Product Name",
+          "type": "text",
+          "reference": {
+            "sheetName": "Products",
+            "columnName": "Product Name"
+          },
+          "lookup": {
+            "sfRelationshipName": "Product2",
+            "targetExternalIdField": "Catalogic_External_ID__c"
+          }
+        },
+        {
+          "name": "Product Code",
+          "type": "text",
+          "required": true,
+          "reference": {
+            "sheetName": "Products",
+            "columnName": "Product Code"
+          },
+          "lookup": {
+            "sfRelationshipName": "Product2",
+            "targetExternalIdField": "Catalogic_External_ID__c"
+          }
+        },
+        { "name": "List Price", "sfFieldName": "UnitPrice", "type": "number", "required": true },
+        { "name": "Active", "sfFieldName": "IsActive", "type": "checkbox" },
+        { "name": "Use Standard Price", "sfFieldName": "UseStandardPrice", "type": "checkbox" },
+        { "name": "Is Derived", "sfFieldName": "IsDerived", "type": "checkbox" },
+        {
+          "name": "Product Selling Model",
+          "type": "text",
+          "required": true,
+          "lookupByName": {
+            "sfIdField": "ProductSellingModelId",
+            "sfObjectName": "ProductSellingModel",
+            "sfLookupField": "Name"
+          }
+        }
+      ]
     }
   ]
 }
