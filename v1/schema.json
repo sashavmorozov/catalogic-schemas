@@ -793,6 +793,108 @@
           }
         }
       ]
+    },
+    {
+      "sheetName": "Product Attribute Defn",
+      "apiName": "ProductAttributeDefinition",
+      "externalIdField": "Catalogic_External_ID__c",
+      "externalIdColumn": "Attribute Code",
+      "compositeExternalId": {
+        "columns": ["Product Code", "Attribute Code"],
+        "separator": "_"
+      },
+      "autoName": {
+        "template": "PAD-{Product Code}-{Attribute Code}"
+      },
+      "backfillSourceFields": ["Product2.ProductCode", "AttributeDefinition.Code"],
+      "backfillSeparator": "_",
+      "autoResolveLookups": [
+        {
+          "sfIdField": "ProductClassificationAttributeId",
+          "resolveBy": "compositeExternalId",
+          "targetObject": "ProductClassificationAttr",
+          "targetExternalIdField": "Catalogic_External_ID__c",
+          "compositeSteps": [
+            { "sourceColumn": "Product Code", "query": "Product2", "queryField": "Catalogic_External_ID__c", "extractField": "BasedOn.Code" },
+            { "sourceColumn": "Attribute Code" }
+          ],
+          "separator": "_"
+        },
+        {
+          "sfIdField": "AttributeCategoryId",
+          "resolveBy": "subquery",
+          "sourceColumn": "Attribute Code",
+          "targetObject": "AttributeDefinition",
+          "targetMatchField": "Catalogic_External_ID__c",
+          "childRelationship": "AttributeCategoryAttributes",
+          "extractField": "AttributeCategoryId"
+        }
+      ],
+      "columns": [
+        { "name": "Checked", "type": "checkbox" },
+        {
+          "name": "Product Name",
+          "type": "text",
+          "reference": {
+            "sheetName": "Products",
+            "columnName": "Product Name"
+          },
+          "lookup": {
+            "sfRelationshipName": "Product2",
+            "targetExternalIdField": "Catalogic_External_ID__c"
+          }
+        },
+        {
+          "name": "Product Code",
+          "type": "text",
+          "required": true,
+          "reference": {
+            "sheetName": "Products",
+            "columnName": "Product Code"
+          },
+          "lookup": {
+            "sfRelationshipName": "Product2",
+            "targetExternalIdField": "Catalogic_External_ID__c"
+          }
+        },
+        {
+          "name": "Attribute Name",
+          "type": "text",
+          "reference": {
+            "sheetName": "Attributes",
+            "columnName": "Attribute Name"
+          },
+          "lookup": {
+            "sfRelationshipName": "AttributeDefinition",
+            "targetExternalIdField": "Catalogic_External_ID__c"
+          }
+        },
+        {
+          "name": "Attribute Code",
+          "type": "text",
+          "required": true,
+          "reference": {
+            "sheetName": "Attributes",
+            "columnName": "Attribute Code"
+          },
+          "lookup": {
+            "sfRelationshipName": "AttributeDefinition",
+            "targetExternalIdField": "Catalogic_External_ID__c"
+          }
+        },
+        { "name": "Default Value", "sfFieldName": "DefaultValue", "type": "text" },
+        { "name": "Is Hidden", "sfFieldName": "IsHidden", "type": "checkbox" },
+        { "name": "Is Read Only", "sfFieldName": "IsReadOnly", "type": "checkbox" },
+        { "name": "Is Required", "sfFieldName": "IsRequired", "type": "checkbox" },
+        { "name": "Is Price Impacting", "sfFieldName": "IsPriceImpacting", "type": "checkbox" },
+        { "name": "Sequence", "sfFieldName": "Sequence", "type": "number" },
+        { "name": "Step Value", "sfFieldName": "StepValue", "type": "text" },
+        { "name": "Maximum Character Count", "sfFieldName": "MaximumCharacterCount", "type": "number" },
+        { "name": "Minimum Character Count", "sfFieldName": "MinimumCharacterCount", "type": "number" },
+        { "name": "Maximum Value", "sfFieldName": "MaximumValue", "type": "text" },
+        { "name": "Minimum Value", "sfFieldName": "MinimumValue", "type": "text" },
+        { "name": "Status", "sfFieldName": "Status", "type": "picklist", "picklistValues": ["Active", "Inactive"] }
+      ]
     }
   ]
 }
