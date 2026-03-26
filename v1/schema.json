@@ -706,16 +706,13 @@
       },
       "secondaryUpsert": {
         "apiName": "ProductSellingModelOption",
-        "externalIdField": "Catalogic_External_ID__c",
+        "externalIdField": "",
         "order": "before",
+        "queryThenInsert": true,
         "fieldMapping": {
           "Product2Id": { "type": "externalId", "sourceColumn": "Product Code", "targetObject": "Product2", "targetField": "Catalogic_External_ID__c" },
           "ProductSellingModelId": { "type": "lookupByName", "sourceColumn": "Product Selling Model", "targetObject": "ProductSellingModel" },
           "IsDefault": { "type": "constant", "value": false }
-        },
-        "compositeExternalId": {
-          "columns": ["Product Code", "Product Selling Model"],
-          "separator": "_"
         }
       },
       "columns": [
