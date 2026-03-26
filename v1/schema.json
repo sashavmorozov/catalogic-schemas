@@ -383,8 +383,32 @@
         { "name": "Active", "sfFieldName": "IsActive", "type": "checkbox" },
         { "name": "Availability Date", "sfFieldName": "AvailabilityDate", "type": "date" },
         { "name": "End of Life Date", "sfFieldName": "EndOfLifeDate", "type": "date" },
-        { "name": "Discontinued Date", "sfFieldName": "DiscontinuedDate", "type": "date" }
-      ]
+        { "name": "Discontinued Date", "sfFieldName": "DiscontinuedDate", "type": "date" },
+        {
+          "name": "Product Category",
+          "type": "text",
+          "reference": {
+            "sheetName": "Product Categories",
+            "columnName": "Product Category Name"
+          }
+        },
+        {
+          "name": "Product Category Code",
+          "type": "text",
+          "reference": {
+            "sheetName": "Product Categories",
+            "columnName": "Product Category Code"
+          }
+        }
+      ],
+      "secondaryUpsert": {
+        "apiName": "ProductCategoryProduct",
+        "externalIdField": "Catalogic_External_ID__c",
+        "parentIdField": "ProductId",
+        "lookupColumn": "Product Category Code",
+        "lookupRelationshipName": "ProductCategory",
+        "lookupTargetExternalIdField": "Catalogic_External_ID__c"
+      }
     },
     {
       "sheetName": "Product Catalogs",
