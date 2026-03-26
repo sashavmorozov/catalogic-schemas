@@ -701,6 +701,8 @@
         "columns": ["Price Book Name", "Product Code", "Product Selling Model"],
         "separator": "_"
       },
+      "backfillSourceFields": ["Pricebook2.Name", "Product2.ProductCode", "ProductSellingModel.Name"],
+      "backfillSeparator": "_",
       "autoName": {
         "template": "PBE-{Price Book Name}-{Product Code}-{Product Selling Model}"
       },
