@@ -1069,6 +1069,106 @@
           "type": "text"
         }
       ]
+    },
+    {
+      "sheetName": "Fulfillment Step Dependencies",
+      "apiName": "FulfillmentStepDependencyDef",
+      "externalIdField": "Catalogic_External_ID__c",
+      "externalIdColumn": "Step Name",
+      "compositeExternalId": {
+        "columns": [
+          "Step Group Name",
+          "Step Name",
+          "Depends On Group Name",
+          "Depends On Step Name",
+          "Dependency Scope"
+        ],
+        "separator": "_"
+      },
+      "backfillSourceFields": [
+        "StepDefinitionGroup.Name",
+        "FulfillmentStepDefinition.Name",
+        "DependsOnStepDefinition.StepDefinitionGroup.Name",
+        "DependsOnStepDefinition.Name",
+        "DependencyScope"
+      ],
+      "backfillSeparator": "_",
+      "autoName": {
+        "template": "FSDD-{Step Group Name}-{Step Name}-DEPS-{Depends On Group Name}-{Depends On Step Name}"
+      },
+      "defaultOrderBy": [
+        "Step Group Name",
+        "Step Name",
+        "Depends On Step Name"
+      ],
+      "columns": [
+        {
+          "name": "Checked",
+          "type": "checkbox"
+        },
+        {
+          "name": "Step Group Name",
+          "type": "text",
+          "required": true,
+          "reference": {
+            "sheetName": "Fulfillment Step Definition Gro",
+            "columnName": "Group Name"
+          },
+          "lookup": {
+            "sfRelationshipName": "FulfillmentStepDefinition",
+            "targetExternalIdField": "Catalogic_External_ID__c"
+          }
+        },
+        {
+          "name": "Step Name",
+          "type": "text",
+          "required": true,
+          "reference": {
+            "sheetName": "Fulfillment Step Definitions",
+            "columnName": "Step Name"
+          },
+          "lookup": {
+            "sfRelationshipName": "FulfillmentStepDefinition",
+            "targetExternalIdField": "Catalogic_External_ID__c"
+          }
+        },
+        {
+          "name": "Depends On Group Name",
+          "type": "text",
+          "reference": {
+            "sheetName": "Fulfillment Step Definition Gro",
+            "columnName": "Group Name"
+          },
+          "lookup": {
+            "sfRelationshipName": "DependsOnStepDefinition",
+            "targetExternalIdField": "Catalogic_External_ID__c"
+          }
+        },
+        {
+          "name": "Depends On Step Name",
+          "type": "text",
+          "reference": {
+            "sheetName": "Fulfillment Step Definitions",
+            "columnName": "Step Name"
+          },
+          "lookup": {
+            "sfRelationshipName": "DependsOnStepDefinition",
+            "targetExternalIdField": "Catalogic_External_ID__c"
+          }
+        },
+        {
+          "name": "Dependency Scope",
+          "sfFieldName": "DependencyScope",
+          "type": "picklist",
+          "picklistValues": [
+            "Plan",
+            "Bundle",
+            "LineItem",
+            "CrossPlan",
+            "Custom"
+          ]
+        }
+      ]
     }
   ]
 }
