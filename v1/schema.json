@@ -903,6 +903,9 @@
       "apiName": "FulfillmentStepDefinitionGroup",
       "externalIdField": "Catalogic_External_ID__c",
       "externalIdColumn": "Group Name",
+      "constantFields": {
+        "UsageType": "Fulfillment"
+      },
       "columns": [
         {
           "name": "Checked",
@@ -915,18 +918,6 @@
           "required": true,
           "primaryKey": true,
           "unique": true
-        },
-        {
-          "name": "Usage Type",
-          "sfFieldName": "UsageType",
-          "type": "picklist",
-          "picklistValues": [
-            "StageManagement",
-            "IntegrationOrchestrator",
-            "Fulfillment",
-            "InsuranceRuleAction",
-            "Generic"
-          ]
         }
       ]
     },
@@ -951,6 +942,9 @@
         "Group Name",
         "Step Name"
       ],
+      "constantFields": {
+        "UsageType": "Fulfillment"
+      },
       "columns": [
         {
           "name": "Checked",
@@ -989,11 +983,6 @@
           ]
         },
         {
-          "name": "Custom Fulfillment Scope",
-          "sfFieldName": "CustomFulfillmentScope",
-          "type": "text"
-        },
-        {
           "name": "Step Type",
           "sfFieldName": "StepType",
           "type": "picklist",
@@ -1004,18 +993,6 @@
             "Milestone",
             "Pause",
             "StagedAssetize"
-          ]
-        },
-        {
-          "name": "Usage Type",
-          "sfFieldName": "UsageType",
-          "type": "picklist",
-          "picklistValues": [
-            "StageManagement",
-            "IntegrationOrchestrator",
-            "Fulfillment",
-            "InsuranceRuleAction",
-            "Generic"
           ]
         },
         {
@@ -1032,76 +1009,6 @@
           "name": "Skip Branch",
           "sfFieldName": "IsSkipBranch",
           "type": "checkbox"
-        },
-        {
-          "name": "Execute On Rule Type",
-          "type": "picklist",
-          "picklistValues": [
-            "ExpressionSet",
-            "Ruleset"
-          ]
-        },
-        {
-          "name": "Execute On Rule Name",
-          "type": "text",
-          "lookupByName": {
-            "sfIdField": "ExecuteOnRuleId",
-            "sfObjectName": "Ruleset",
-            "sfLookupField": "Name",
-            "polymorphic": {
-              "discriminatorColumn": "Execute On Rule Type",
-              "mapping": {
-                "ExpressionSet": {
-                  "sfObjectName": "ExpressionSet",
-                  "sfLookupField": "Name"
-                },
-                "Ruleset": {
-                  "sfObjectName": "Ruleset",
-                  "sfLookupField": "Name"
-                }
-              }
-            }
-          }
-        },
-        {
-          "name": "Execute On Condition Data",
-          "sfFieldName": "ExecuteOnConditionData",
-          "type": "text"
-        },
-        {
-          "name": "Resume On Rule Type",
-          "type": "picklist",
-          "picklistValues": [
-            "ExpressionSet",
-            "Ruleset"
-          ]
-        },
-        {
-          "name": "Resume On Rule Name",
-          "type": "text",
-          "lookupByName": {
-            "sfIdField": "ResumeOnRuleId",
-            "sfObjectName": "Ruleset",
-            "sfLookupField": "Name",
-            "polymorphic": {
-              "discriminatorColumn": "Resume On Rule Type",
-              "mapping": {
-                "ExpressionSet": {
-                  "sfObjectName": "ExpressionSet",
-                  "sfLookupField": "Name"
-                },
-                "Ruleset": {
-                  "sfObjectName": "Ruleset",
-                  "sfLookupField": "Name"
-                }
-              }
-            }
-          }
-        },
-        {
-          "name": "Resume On Condition Data",
-          "sfFieldName": "ResumeOnConditionData",
-          "type": "text"
         },
         {
           "name": "Assigned To Type",
