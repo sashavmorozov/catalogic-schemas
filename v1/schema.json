@@ -947,6 +947,10 @@
         "Name"
       ],
       "backfillSeparator": "_",
+      "defaultOrderBy": [
+        "Group Name",
+        "Step Name"
+      ],
       "columns": [
         {
           "name": "Checked",
@@ -964,7 +968,7 @@
           "type": "text",
           "required": true,
           "reference": {
-            "sheetName": "Fulfillment Step Definition Groups",
+            "sheetName": "Fulfillment Step Definition Gro",
             "columnName": "Group Name"
           },
           "lookup": {
