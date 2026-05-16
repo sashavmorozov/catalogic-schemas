@@ -717,6 +717,37 @@
       ]
     },
     {
+      "sheetName": "Pricebooks",
+      "apiName": "Pricebook2",
+      "externalIdField": "Catalogic_External_ID__c",
+      "externalIdColumn": "Price Book Name",
+      "externalIdTransform": "camelCase",
+      "columns": [
+        { "name": "Checked", "type": "checkbox" },
+        {
+          "name": "Price Book Name",
+          "sfFieldName": "Name",
+          "type": "text",
+          "required": true,
+          "primaryKey": true,
+          "unique": true
+        },
+        { "name": "Description", "sfFieldName": "Description", "type": "text" },
+        { "name": "Active", "sfFieldName": "IsActive", "type": "checkbox" },
+        {
+          "name": "Cost Book",
+          "type": "text",
+          "lookupByName": {
+            "sfIdField": "CostBookId",
+            "sfObjectName": "CostBook",
+            "sfLookupField": "Name"
+          }
+        },
+        { "name": "Valid From", "sfFieldName": "ValidFrom", "type": "date" },
+        { "name": "Valid To", "sfFieldName": "ValidTo", "type": "date" }
+      ]
+    },
+    {
       "sheetName": "Pricebook Entries",
       "apiName": "PricebookEntry",
       "externalIdField": "Catalogic_External_ID__c",
