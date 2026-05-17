@@ -748,6 +748,45 @@
       ]
     },
     {
+      "sheetName": "Product Selling Models",
+      "apiName": "ProductSellingModel",
+      "externalIdField": "Catalogic_External_ID__c",
+      "externalIdColumn": "Selling Model Name",
+      "externalIdTransform": "camelCase",
+      "columns": [
+        { "name": "Checked", "type": "checkbox" },
+        {
+          "name": "Selling Model Name",
+          "sfFieldName": "Name",
+          "type": "text",
+          "required": true,
+          "primaryKey": true,
+          "unique": true
+        },
+        {
+          "name": "Selling Model Type",
+          "sfFieldName": "SellingModelType",
+          "type": "picklist",
+          "picklistValues": ["One Time", "Term-Defined", "Evergreen"],
+          "picklistDisplayMap": { "Term-Defined": "TermDefined" }
+        },
+        { "name": "Pricing Term", "sfFieldName": "PricingTerm", "type": "number" },
+        {
+          "name": "Pricing Term Unit",
+          "sfFieldName": "PricingTermUnit",
+          "type": "picklist",
+          "picklistValues": ["Months", "Quarterly", "Semi-Annual", "Annual"]
+        },
+        {
+          "name": "Status",
+          "sfFieldName": "Status",
+          "type": "picklist",
+          "picklistValues": ["Draft", "Inactive", "Active"]
+        },
+        { "name": "Auto Renew Asset", "sfFieldName": "DoesAutoRenewAssetByDefault", "type": "checkbox" }
+      ]
+    },
+    {
       "sheetName": "Pricebook Entries",
       "apiName": "PricebookEntry",
       "externalIdField": "Catalogic_External_ID__c",
