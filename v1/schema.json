@@ -751,12 +751,12 @@
       "sheetName": "Product Selling Models",
       "apiName": "ProductSellingModel",
       "externalIdField": "Catalogic_External_ID__c",
-      "externalIdColumn": "Selling Model Name",
+      "externalIdColumn": "Product Selling Model Name",
       "externalIdTransform": "camelCase",
       "columns": [
         { "name": "Checked", "type": "checkbox" },
         {
-          "name": "Selling Model Name",
+          "name": "Product Selling Model Name",
           "sfFieldName": "Name",
           "type": "text",
           "required": true,
